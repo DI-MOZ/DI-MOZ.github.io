@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Collins Omondi — Cloud & AI Technology Enthusiast, QA Engineer, and Data Analytics specialist based in Nairobi, Kenya.">
+<title>Collins Omondi · Cloud, AI & QA Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1020; --bg-2:#111834; --card:#151d3b; --line:#26315c;
+    --text:#e8ecff; --muted:#9aa6cf; --brand:#5b8cff; --brand-2:#7c5cff; --accent:#22d3aa;
+    --shadow:0 20px 45px -20px rgba(0,0,0,.6);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);
+    line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.2;letter-spacing:-.02em}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+      background:rgba(11,16,32,.72);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:'Space Grotesk';font-weight:700;font-size:18px}
+  .logo span{color:var(--brand)}
+  .nav-links{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--muted)}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a{transition:color .2s}
+  @media(max-width:680px){.nav-links{display:none}}
+
+  /* Hero */
+  header{position:relative;padding:96px 0 72px;overflow:hidden}
+  .glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;z-index:0}
+  .glow.a{width:420px;height:420px;background:var(--brand);top:-140px;right:-80px}
+  .glow.b{width:360px;height:360px;background:var(--brand-2);bottom:-160px;left:-100px}
+  .hero{position:relative;z-index:1}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+        color:var(--accent);background:rgba(34,211,170,.1);border:1px solid rgba(34,211,170,.3);
+        padding:6px 14px;border-radius:999px;margin-bottom:22px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(34,211,170,.6);
+       animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,170,.5)}70%{box-shadow:0 0 0 10px rgba(34,211,170,0)}100%{box-shadow:0 0 0 0 rgba(34,211,170,0)}}
+  header h1{font-size:clamp(38px,7vw,64px);font-weight:800;margin-bottom:14px}
+  .grad{background:linear-gradient(120deg,var(--brand),var(--brand-2) 50%,var(--accent));
+        -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .role{font-size:clamp(18px,3vw,24px);color:var(--muted);font-weight:500;margin-bottom:24px}
+  .lead{max-width:640px;color:var(--muted);font-size:17px;margin-bottom:32px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:12px;
+       font-weight:600;font-size:15px;transition:transform .15s,box-shadow .2s,background .2s}
+  .btn.primary{background:linear-gradient(120deg,var(--brand),var(--brand-2));color:#fff;box-shadow:var(--shadow)}
+  .btn.ghost{border:1px solid var(--line);color:var(--text);background:var(--card)}
+  .btn:hover{transform:translateY(-2px)}
+  .stats{display:flex;gap:36px;margin-top:48px;flex-wrap:wrap}
+  .stat b{font-family:'Space Grotesk';font-size:30px;display:block;color:var(--text)}
+  .stat span{font-size:13px;color:var(--muted)}
+
+  /* Sections */
+  section{padding:72px 0}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);margin-bottom:10px}
+  .sec-title{font-size:clamp(26px,4vw,36px);font-weight:700;margin-bottom:14px}
+  .sec-sub{color:var(--muted);max-width:620px;margin-bottom:40px}
+
+  .grid{display:grid;gap:20px}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .cols-2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.cols-3{grid-template-columns:1fr}.cols-2{grid-template-columns:1fr}}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;
+        transition:transform .2s,border-color .2s}
+  .card:hover{transform:translateY(-4px);border-color:var(--brand)}
+  .card h3{font-size:18px;margin-bottom:8px}
+  .card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;
+            background:linear-gradient(135deg,rgba(91,140,255,.2),rgba(124,92,255,.2));margin-bottom:16px}
+  .card p{color:var(--muted);font-size:14.5px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .tag{font-size:12.5px;font-weight:500;color:var(--muted);background:var(--bg-2);
+       border:1px solid var(--line);padding:5px 11px;border-radius:8px}
+
+  /* Timeline */
+  .tl{position:relative;padding-left:30px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl-item{position:relative;padding-bottom:34px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{content:"";position:absolute;left:-30px;top:5px;width:16px;height:16px;border-radius:50%;
+                   background:var(--brand);box-shadow:0 0 0 4px rgba(91,140,255,.18)}
+  .tl-item .when{font-size:13px;color:var(--accent);font-weight:600}
+  .tl-item h3{font-size:19px;margin:4px 0 2px}
+  .tl-item .org{color:var(--muted);font-size:14px;margin-bottom:12px}
+  .tl-item ul{list-style:none;display:grid;gap:8px}
+  .tl-item li{position:relative;padding-left:20px;color:var(--muted);font-size:14.5px}
+  .tl-item li::before{content:"▹";position:absolute;left:0;color:var(--brand)}
+
+  /* Certs */
+  .cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:680px){.cert-grid{grid-template-columns:1fr}}
+  .cert{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
+        border-radius:12px;padding:16px 18px;transition:border-color .2s}
+  .cert:hover{border-color:var(--accent)}
+  .cert .badge{width:38px;height:38px;flex:0 0 38px;border-radius:10px;display:grid;place-items:center;
+               background:rgba(34,211,170,.12);color:var(--accent);font-size:18px}
+  .cert b{display:block;font-size:14.5px;font-weight:600}
+  .cert span{font-size:12.5px;color:var(--muted)}
+
+  /* Contact */
+  .contact{background:linear-gradient(135deg,var(--bg-2),var(--card));border:1px solid var(--line);
+           border-radius:22px;padding:52px 40px;text-align:center}
+  .contact h2{font-size:clamp(26px,4vw,34px);margin-bottom:12px}
+  .contact p{color:var(--muted);max-width:520px;margin:0 auto 28px}
+  .social{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--muted);font-size:13.5px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="logo">Collins<span>.</span>Omondi</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="glow a"></div><div class="glow b"></div>
+  <div class="wrap hero">
+    <span class="pill"><span class="dot"></span> Available for internships &amp; attachments</span>
+    <h1>Collins Omondi <span class="grad">Onyango</span></h1>
+    <p class="role">Cloud &amp; AI Technology Enthusiast · QA Engineer · Data &amp; Analytics</p>
+    <p class="lead">Computer Science undergraduate at Multimedia University of Kenya with hands-on QA engineering experience and a growing portfolio of cloud, AI, and data science credentials. I build reliable software and turn data into insight.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">📬 Get in touch</a>
+      <a class="btn ghost" href="https://github.com/DI-MOZ" target="_blank" rel="noopener">⌥ View GitHub</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>13+</b><span>Certifications</span></div>
+      <div class="stat"><b>3+</b><span>Months QA experience</span></div>
+      <div class="stat"><b>AZ-900</b><span>Azure Certified</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap reveal">
+    <div class="eyebrow">About</div>
+    <h2 class="sec-title">Turning curiosity into capability</h2>
+    <p class="sec-sub">I'm an ambitious, technology-driven CS undergraduate passionate about cloud computing, artificial intelligence, and software quality. I bring practical QA experience from a professional internship and a strong commitment to continuous learning.</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <div class="ic">☁️</div>
+        <h3>Cloud &amp; AI</h3>
+        <p>Microsoft Azure (AZ-900 certified) and Google Cloud fundamentals, plus a foundation in AI engineering, ML, and agentic AI.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🐞</div>
+        <h3>Quality Assurance</h3>
+        <p>Manual and automated testing, test-case design, regression &amp; system testing, and clear, traceable bug documentation.</p>
+      </div>
+      <div class="card">
+        <div class="ic">📊</div>
+        <h3>Data &amp; Analytics</h3>
+        <p>Power BI dashboards, data visualization, and foundational Python for practical data science and analysis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="eyebrow">Toolbox</div>
+    <h2 class="sec-title">Skills &amp; Technologies</h2>
+    <p class="sec-sub">A blend of cloud platforms, QA practice, and data tooling I use to ship and validate quality software.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>☁️ Cloud &amp; AI Platforms</h3>
+        <div class="tags">
+          <span class="tag">Microsoft Azure</span><span class="tag">Google Cloud</span>
+          <span class="tag">AI Engineering</span><span class="tag">Machine Learning</span>
+          <span class="tag">Generative AI</span><span class="tag">AI Agents</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🧪 QA &amp; Testing</h3>
+        <div class="tags">
+          <span class="tag">Manual Testing</span><span class="tag">Automated Testing</span>
+          <span class="tag">Test Case Design</span><span class="tag">Regression Testing</span>
+          <span class="tag">System Testing</span><span class="tag">Bug Reporting</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>📈 Data &amp; Programming</h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Power BI</span>
+          <span class="tag">Data Visualization</span><span class="tag">Data Science</span>
+          <span class="tag">Analytics</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🌐 Fundamentals &amp; Soft Skills</h3>
+        <div class="tags">
+          <span class="tag">Networking Basics</span><span class="tag">System Fundamentals</span>
+          <span class="tag">Analytical Thinking</span><span class="tag">Collaboration</span>
+          <span class="tag">Documentation</span><span class="tag">Attention to Detail</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap reveal">
+    <div class="eyebrow">Journey</div>
+    <h2 class="sec-title">Experience &amp; Education</h2>
+    <p class="sec-sub">Where I've applied my skills and where I'm building my foundation.</p>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="when">Jun 2025 – Sep 2025</div>
+        <h3>QA Engineer — Industrial Attachment</h3>
+        <div class="org">Kiwami Tech · Nairobi, Kenya</div>
+        <ul>
+          <li>Conducted comprehensive manual and automated testing across multiple digital products, ensuring releases met client specifications.</li>
+          <li>Identified, documented, and tracked defects using QA tools, collaborating with developers to speed resolution.</li>
+          <li>Designed and executed test cases for system, regression, and user acceptance testing to improve product stability.</li>
+          <li>Maintained QA documentation and bug reports with clear, actionable insights for cross-functional teams.</li>
+          <li>Gained hands-on exposure to the full SDLC and agile-aligned QA workflows.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="when">2023 – Present · 3rd Year</div>
+        <h3>BSc in Computer Science</h3>
+        <div class="org">Multimedia University of Kenya · Nairobi, Kenya</div>
+        <ul>
+          <li>Coursework in Software Engineering, Data Structures, Cloud Computing, Networking, and AI Fundamentals.</li>
+          <li>Active member of the university technology community, engaging in peer learning and project-based initiatives.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="wrap reveal">
+    <div class="eyebrow">Credentials</div>
+    <h2 class="sec-title">Certifications &amp; Training</h2>
+    <p class="sec-sub">13+ industry certifications across cloud, AI/ML, data science, and business intelligence.</p>
+    <div class="cert-grid">
+      <div class="cert"><div class="badge">✦</div><div><b>Azure Fundamentals (AZ-900)</b><span>Microsoft</span></div></div>
+      <div class="cert"><div class="badge">✦</div><div><b>AI Foundations</b><span>Oracle University</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Power BI Certification</b><span>365 Data Science</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Intro to Artificial Intelligence</b><span>365 Data Science</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>AI Agents &amp; Agentic AI</b><span>365 Data Science</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Intro to Generative AI</b><span>365 Data Science</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Intro to Google Cloud</b><span>365 Data Science</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Intro to Microsoft Azure</b><span>365 Data Science</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Data &amp; Data Science</b><span>365 Data Science</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Introduction to Python</b><span>DataCamp</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Introduction to AI Agents</b><span>DataCamp</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Understanding Machine Learning</b><span>DataCamp</span></div></div>
+      <div class="cert"><div class="badge">✓</div><div><b>Understanding Artificial Intelligence</b><span>DataCamp</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap reveal">
+    <div class="contact">
+      <div class="eyebrow" style="justify-content:center">Let's build something</div>
+      <h2>Get in touch</h2>
+      <p>Available full-time for a 3-month Industrial Attachment (July, October, or January intake). Open to opportunities in cloud, AI, QA, and data.</p>
+      <div class="social">
+        <a class="btn primary" href="mailto:collinsdimoz@gmail.com">📧 collinsdimoz@gmail.com</a>
+        <a class="btn ghost" href="https://github.com/DI-MOZ" target="_blank" rel="noopener">💻 GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Collins Omondi Onyango · Nairobi, Kenya · Built with ♥ and hosted on GitHub Pages</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
