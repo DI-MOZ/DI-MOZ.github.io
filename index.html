@@ -183,6 +183,33 @@
 
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
   .reveal.in{opacity:1;transform:none}
+
+  /* ---- Print / PDF: paginate cleanly, no blank gaps, all content visible ---- */
+  @media print{
+    @page{margin:14mm}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    html,body{font-size:11.5px;line-height:1.5}
+    nav{position:static;background:#fff}
+    .nav-links,.nav-cta{display:none}
+    header{padding:14px 0 18px}
+    header h1{font-size:34px}
+    .avail{display:none}
+    .cta{display:none}
+    .stripwrap{margin:0}
+    .strip .s{padding:12px}
+    .strip .s b{font-size:22px}
+    section{padding:20px 0;break-inside:auto}
+    .sec-sub{margin-bottom:18px}
+    /* Reveal must be visible even if JS/animation hasn't run */
+    .reveal{opacity:1 !important;transform:none !important}
+    /* Keep logical blocks intact across page breaks */
+    .cell,.pcard,.xp-item,.ibox,.cert,.comp .c,.skills > div{break-inside:avoid;page-break-inside:avoid}
+    .sec-title,h1,h2,h3{break-after:avoid}
+    .btn.ghost,.social .btn.ghost{display:none}
+    .pcard:hover,.cell:hover,.card:hover{transform:none}
+    footer{padding:14px 0}
+    a[href^="http"]::after{content:""} /* no ugly URL trails */
+  }
 </style>
 </head>
 <body>
